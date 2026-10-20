@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VL Teams — catálogo de camisas esportivas com pedidos pelo WhatsApp.">
+  <title>VL Teams | Camisas Esportivas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="topbar">Pedidos confirmados pelo WhatsApp • Enviamos para todo o Brasil</div>
+  <header class="header">
+    <div class="container header-row">
+      <a class="logo" href="#inicio" aria-label="VL Teams"><img id="siteLogo" src="assets/logo-vl-teams.png" alt="VL Teams"></a>
+      <nav class="nav" id="mainNav">
+        <a href="#inicio">Início</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#novidades">Novidades</a>
+        <a href="#guia-medidas">Guia de medidas</a>
+        <a href="#como-comprar">Como comprar</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-dark" id="headerWhatsapp" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <button class="icon-btn" id="cartButton" aria-label="Abrir carrinho">🛒<span class="cart-count" id="cartCount">0</span></button>
+        <button class="icon-btn menu-btn" id="menuButton" aria-label="Abrir menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-track" id="heroTrack"></div>
+      <div class="hero-dots" id="heroDots"></div>
+    </section>
+
+    <div class="container">
+      <section class="promo-grid" aria-label="Destaques">
+        <a class="promo-card" href="#catalogo"><span class="eyebrow">PROMOÇÃO</span><h3>Preços especiais</h3><p>Confira os modelos selecionados.</p></a>
+        <a class="promo-card" href="#novidades"><span class="eyebrow" style="color:#bfdbfe">NOVIDADES</span><h3>Novas camisas</h3><p>Os lançamentos que acabaram de chegar.</p></a>
+        <a class="promo-card" href="#catalogo"><span class="eyebrow" style="color:#fecaca">RETRÔ</span><h3>Clássicos inesquecíveis</h3><p>Vista a história do seu time.</p></a>
+      </section>
+    </div>
+
+    <section class="section" id="catalogo">
+      <div class="container">
+        <div class="section-title">
+          <div><span class="eyebrow">NOSSO CATÁLOGO</span><h2>Escolha sua camisa</h2><p>Selecione o modelo, o tamanho e adicione ao carrinho.</p></div>
+        </div>
+        <div class="search-row">
+          <input class="input" id="productSearch" type="search" placeholder="Buscar por camisa, time ou categoria">
+          <select id="sortProducts" aria-label="Ordenar produtos">
+            <option value="featured">Destaques primeiro</option>
+            <option value="price-asc">Menor preço</option>
+            <option value="price-desc">Maior preço</option>
+            <option value="name">Nome A–Z</option>
+          </select>
+        </div>
+        <div class="filters" id="categoryFilters"></div>
+        <div class="product-grid" id="productGrid"></div>
+        <div class="empty-state" id="productEmpty" hidden>Nenhuma camisa encontrada.</div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:28px">
+          <span class="muted" id="productCount"></span>
+          <button class="btn btn-dark" id="loadMoreProducts" type="button" hidden>Carregar mais camisas</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="novidades" style="background:#fff">
+      <div class="container">
+        <div class="section-title"><div><span class="eyebrow">DESTAQUES</span><h2>Novidades da VL Teams</h2><p>Produtos marcados pelo administrador como destaque.</p></div></div>
+        <div class="product-grid" id="featuredGrid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title"><div><span class="eyebrow">POR QUE COMPRAR</span><h2>Uma experiência simples</h2></div></div>
+        <div class="benefit-grid">
+          <article class="benefit"><div class="icon">📱</div><h3>Atendimento humano</h3><p>Finalize o pedido e tire suas dúvidas diretamente pelo WhatsApp.</p></article>
+          <article class="benefit"><div class="icon">📦</div><h3>Entrega combinada</h3><p>O frete e o prazo são confirmados com você durante o atendimento.</p></article>
+          <article class="benefit"><div class="icon">👕</div><h3>Tamanhos disponíveis</h3><p>Escolha seu tamanho e confira as opções antes de enviar o pedido.</p></article>
+          <article class="benefit"><div class="icon">🔒</div><h3>Dados protegidos</h3><p>As informações são usadas somente para atendimento e entrega.</p></article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section size-guide-section" id="guia-medidas">
+      <div class="container">
+        <div class="size-guide-layout">
+          <div class="size-guide-copy">
+            <span class="eyebrow">GUIA DE MEDIDAS</span>
+            <h2>Encontre o tamanho ideal</h2>
+            <p>Este guia é utilizado como referência para todas as camisas adultas do catálogo. Compare o comprimento e a largura com uma peça que veste bem em você.</p>
+            <div class="notice">Os tamanhos disponíveis vão do <strong>P ao 4XG</strong>. Pode existir pequena variação de fabricação entre os modelos.</div>
+            <a class="btn btn-dark" href="#catalogo">Voltar ao catálogo</a>
+          </div>
+          <button class="size-guide-image-button" id="openSizeGuide" type="button" aria-label="Ampliar guia de medidas">
+            <img id="sizeGuideImage" src="assets/guia-medidas-adulto.webp" alt="Tabela de medidas para camisas adultas" loading="lazy">
+            <span>Toque para ampliar</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="como-comprar" style="background:#e9edf0">
+      <div class="container">
+        <div class="section-title"><div><span class="eyebrow">PASSO A PASSO</span><h2>Como comprar</h2></div></div>
+        <div class="how-grid">
+          <article class="how-card"><h3>Escolha a camisa</h3><p>Navegue pelo catálogo e abra o modelo desejado.</p></article>
+          <article class="how-card"><h3>Defina os detalhes</h3><p>Selecione tamanho, quantidade e personalização.</p></article>
+          <article class="how-card"><h3>Preencha o endereço</h3><p>Informe CEP, rua, número e os dados de entrega.</p></article>
+          <article class="how-card"><h3>Finalize no WhatsApp</h3><p>O pedido completo será enviado automaticamente para a loja.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contato">
+    <div class="container footer-grid">
+      <div><img class="footer-logo" id="footerLogo" src="assets/logo-vl-teams.png" alt="VL Teams"><p id="footerDescription"></p><a id="footerInstagram" target="_blank" rel="noopener"></a></div>
+      <div><h4>Navegação</h4><div class="footer-links"><a href="#inicio">Início</a><a href="#catalogo">Catálogo</a><a href="#novidades">Novidades</a><a href="#guia-medidas">Guia de medidas</a><a href="#como-comprar">Como comprar</a></div></div>
+      <div><h4>Atendimento</h4><p id="footerHours"></p><a id="footerWhatsapp" target="_blank" rel="noopener">WhatsApp da loja</a><p id="footerShipping"></p></div>
+      <div><h4>Formas de pagamento</h4><img class="payment-image" id="paymentImage" src="assets/payments.svg" alt="Formas de pagamento"><p>Pagamento combinado após a confirmação do pedido.</p></div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 VL Teams. Todos os direitos reservados.</span><span id="footerPrivacy"></span></div>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho">
+    <div class="drawer-header"><div><span class="eyebrow">SEU PEDIDO</span><h2 style="margin:3px 0 0">Carrinho</h2></div><button class="icon-btn" id="closeCart">✕</button></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-footer">
+      <div class="summary-line"><span>Subtotal</span><strong id="cartSubtotal">R$ 0,00</strong></div>
+      <button class="btn btn-primary btn-block" id="checkoutButton">Preencher dados de entrega</button>
+    </div>
+  </aside>
+
+  <div class="modal-backdrop" id="productBackdrop"></div>
+  <div class="modal" id="productModal" role="dialog" aria-modal="true">
+    <div class="modal-panel" style="width:min(720px,100%)">
+      <div class="modal-header"><h2 id="productModalTitle" style="margin:0">Detalhes do produto</h2><button class="icon-btn" data-close-product>✕</button></div>
+      <div class="modal-body" id="productModalBody"></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="checkoutBackdrop"></div>
+  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true">
+    <div class="modal-panel">
+      <div class="modal-header"><div><span class="eyebrow">FINALIZAÇÃO</span><h2 style="margin:3px 0 0">Dados do pedido</h2></div><button class="icon-btn" data-close-checkout>✕</button></div>
+      <div class="modal-body">
+        <form id="checkoutForm">
+          <div class="form-grid">
+            <div class="form-group"><label for="customerName">Nome completo *</label><input class="input" id="customerName" autocomplete="name" required></div>
+            <div class="form-group"><label for="customerPhone">Telefone/WhatsApp *</label><input class="input" id="customerPhone" inputmode="tel" autocomplete="tel" placeholder="(81) 99999-9999" required></div>
+            <div class="form-group"><label for="customerCpf">CPF *</label><input class="input" id="customerCpf" inputmode="numeric" autocomplete="off" maxlength="14" placeholder="000.000.000-00" required><small class="muted">Usado somente para identificação do pedido e envio.</small></div>
+            <div class="form-group"><label for="customerEmail">E-mail</label><input class="input" id="customerEmail" type="email" autocomplete="email"></div>
+            <div class="form-group"><label for="paymentMethod">Preferência de pagamento *</label><select id="paymentMethod" required><option value="">Selecione</option><option>Pix</option><option>Cartão de crédito</option><option>Cartão de débito</option><option>Dinheiro</option><option>Combinar pelo WhatsApp</option></select></div>
+            <div class="form-group"><label for="zipCode">CEP *</label><input class="input" id="zipCode" inputmode="numeric" maxlength="9" placeholder="00000-000" required><small class="muted" id="cepStatus">O endereço será preenchido automaticamente.</small></div>
+            <div class="form-group"><label for="street">Rua *</label><input class="input" id="street" required></div>
+            <div class="form-group"><label for="number">Número da residência *</label><input class="input" id="number" required></div>
+            <div class="form-group"><label for="complement">Complemento</label><input class="input" id="complement" placeholder="Apartamento, bloco, casa..."></div>
+            <div class="form-group"><label for="district">Bairro *</label><input class="input" id="district" required></div>
+            <div class="form-group"><label for="city">Cidade *</label><input class="input" id="city" required></div>
+            <div class="form-group"><label for="state">Estado *</label><input class="input" id="state" maxlength="2" required></div>
+            <div class="form-group"><label for="reference">Ponto de referência</label><input class="input" id="reference"></div>
+            <div class="form-group full"><label for="notes">Observações do pedido</label><textarea id="notes" rows="3" placeholder="Ex.: entregar após as 14h"></textarea></div>
+            <div class="form-group full"><label style="display:flex;gap:9px;align-items:flex-start;font-weight:600"><input type="checkbox" id="privacyConsent" required style="margin-top:4px"> Concordo com o uso dos meus dados para atendimento, processamento e entrega deste pedido.</label></div>
+          </div>
+          <div class="checkout-summary" id="checkoutSummary"></div>
+          <div class="notice" style="margin:14px 0">O frete, o prazo e a disponibilidade final serão confirmados pela loja no WhatsApp.</div>
+          <button class="btn btn-primary btn-block" type="submit">Enviar pedido pelo WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal-backdrop" id="sizeGuideBackdrop"></div>
+  <div class="modal" id="sizeGuideModal" role="dialog" aria-modal="true" aria-label="Guia de medidas">
+    <div class="modal-panel size-guide-modal-panel">
+      <div class="modal-header"><div><span class="eyebrow">TAMANHOS ADULTOS</span><h2 style="margin:3px 0 0">Guia de medidas</h2></div><button class="icon-btn" data-close-size-guide>✕</button></div>
+      <div class="modal-body"><img id="sizeGuideModalImage" class="size-guide-modal-image" src="assets/guia-medidas-adulto.webp" alt="Tabela de medidas para camisas adultas"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin | VL Teams</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="admin-body">
+  <section class="admin-login" id="loginScreen">
+    <form class="login-card" id="loginForm">
+      <img src="assets/logo-vl-teams.png" alt="VL Teams">
+      <h1>Área administrativa</h1>
+      <p>Entre para gerenciar produtos, banners, rodapé e pedidos.</p>
+      <div class="form-group" style="margin-top:20px"><label for="loginEmail">E-mail</label><input class="input" id="loginEmail" type="email" value="admin@vlteams.com" required></div>
+      <div class="form-group" style="margin-top:12px"><label for="loginPassword">Senha</label><input class="input" id="loginPassword" type="password" value="demo1234" required></div>
+      <button class="btn btn-primary btn-block" style="margin-top:18px" type="submit">Entrar</button>
+      <div class="notice" style="margin-top:16px">Acesso de demonstração: <strong>admin@vlteams.com</strong> / <strong>demo1234</strong>. As alterações ficam salvas só no seu navegador.</div>
+      <a href="index.html" class="btn btn-outline btn-block" style="margin-top:10px">Voltar para a loja</a>
+    </form>
+  </section>
+
+  <div class="admin-shell" id="adminShell" hidden>
+    <aside class="admin-sidebar" id="adminSidebar">
+      <a class="logo" href="index.html"><img id="adminLogo" src="assets/logo-vl-teams.png" alt="VL Teams"></a>
+      <nav class="admin-nav">
+        <button class="active" data-section="dashboard">▦ Visão geral</button>
+        <button data-section="products">👕 Produtos</button>
+        <button data-section="banners">🖼 Banners e artes</button>
+        <button data-section="orders">📦 Pedidos</button>
+        <button data-section="footer">▤ Rodapé e loja</button>
+        <button data-section="settings">⚙ Configurações</button>
+      </nav>
+      <div class="sidebar-footer"><button class="btn btn-outline btn-block" id="logoutButton" style="border-color:#333;color:#fff">Sair</button></div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;gap:10px;align-items:center"><button class="icon-btn mobile-admin-menu" id="adminMenuButton">☰</button><strong id="adminPageTitle">Visão geral</strong></div>
+        <div style="display:flex;gap:10px"><a class="btn btn-outline btn-small" href="index.html" target="_blank">Ver loja</a></div>
+      </header>
+
+      <div class="admin-content">
+        <section class="admin-section active" id="section-dashboard">
+          <div class="admin-heading"><div><h1>Visão geral</h1><p>Resumo dos dados desta versão provisória.</p></div></div>
+          <div class="stat-grid" id="statsGrid"></div>
+          <div class="admin-card" style="margin-top:18px"><h3 style="margin-top:0">Últimos pedidos</h3><div class="table-wrap" id="recentOrders"></div></div>
+        </section>
+
+        <section class="admin-section" id="section-products">
+          <div class="admin-heading"><div><h1>Produtos</h1><p>Adicione, edite, oculte ou exclua produtos.</p></div><button class="btn btn-primary" id="newProductButton">＋ Novo produto</button></div>
+          <div class="admin-card"><div class="table-wrap"><table class="admin-table"><thead><tr><th>Imagem</th><th>Produto</th><th>Categoria</th><th>Preço</th><th>Tamanhos</th><th>Status</th><th>Ações</th></tr></thead><tbody id="productsTable"></tbody></table></div></div>
+        </section>
+
+        <section class="admin-section" id="section-banners">
+          <div class="admin-heading"><div><h1>Banners e artes</h1><p>Gerencie as imagens principais, promoções e novidades.</p></div><button class="btn btn-primary" id="newBannerButton">＋ Novo banner</button></div>
+          <div class="admin-card"><div class="table-wrap"><table class="admin-table"><thead><tr><th>Imagem</th><th>Título</th><th>Botão</th><th>Ordem</th><th>Status</th><th>Ações</th></tr></thead><tbody id="bannersTable"></tbody></table></div></div>
+        </section>
+
+        <section class="admin-section" id="section-orders">
+          <div class="admin-heading"><div><h1>Pedidos</h1><p>Pedidos registrados antes do cliente abrir o WhatsApp.</p></div></div>
+          <div class="admin-card"><div class="table-wrap"><table class="admin-table"><thead><tr><th>Pedido</th><th>Cliente</th><th>Data</th><th>Itens</th><th>Total</th><th>Status</th><th>Ações</th></tr></thead><tbody id="ordersTable"></tbody></table></div></div>
+        </section>
+
+        <section class="admin-section" id="section-footer">
+          <div class="admin-heading"><div><h1>Rodapé e informações</h1><p>Edite imagens, textos, contatos e formas de pagamento.</p></div></div>
+          <form class="admin-card" id="footerForm">
+            <div class="admin-form-grid">
+              <div class="form-group"><label>Nome da loja</label><input class="input" id="settingStoreName" required></div>
+              <div class="form-group"><label>WhatsApp com DDI e DDD</label><input class="input" id="settingWhatsapp" placeholder="5581999999999" required></div>
+              <div class="form-group"><label>Link do Instagram</label><input class="input" id="settingInstagram" type="url"></div>
+              <div class="form-group"><label>Nome exibido do Instagram</label><input class="input" id="settingInstagramLabel"></div>
+              <div class="form-group full"><label>Descrição da loja</label><textarea id="settingDescription" rows="3"></textarea></div>
+              <div class="form-group"><label>Horário de atendimento</label><input class="input" id="settingHours"></div>
+              <div class="form-group"><label>Texto de envio</label><input class="input" id="settingShipping"></div>
+              <div class="form-group full"><label>Texto de privacidade</label><input class="input" id="settingPrivacy"></div>
+
+              <div class="form-group full"><h3 style="margin-bottom:0">Logo do site e rodapé</h3></div>
+              <div class="form-group"><label>URL da logo</label><input class="input" id="settingLogoUrl"></div>
+              <div class="form-group"><label>Ou envie uma imagem</label><input class="input" id="settingLogoFile" type="file" accept="image/*"></div>
+              <div class="form-group full"><img class="image-preview" id="settingLogoPreview" alt="Prévia da logo"></div>
+
+              <div class="form-group full"><h3 style="margin-bottom:0">Imagem de fundo do rodapé</h3></div>
+              <div class="form-group"><label>URL da imagem</label><input class="input" id="settingFooterBgUrl"></div>
+              <div class="form-group"><label>Ou envie uma imagem</label><input class="input" id="settingFooterBgFile" type="file" accept="image/*"></div>
+              <div class="form-group full"><img class="image-preview" id="settingFooterBgPreview" alt="Prévia do fundo"></div>
+
+
+              <div class="form-group full"><h3 style="margin-bottom:0">Imagem do guia de medidas</h3><p class="muted" style="margin-top:4px">Esta tabela será exibida em todas as camisas adultas e em uma seção da página inicial.</p></div>
+              <div class="form-group"><label>URL da imagem</label><input class="input" id="settingSizeGuideUrl"></div>
+              <div class="form-group"><label>Ou envie uma imagem</label><input class="input" id="settingSizeGuideFile" type="file" accept="image/*"></div>
+              <div class="form-group full"><img class="image-preview size-guide-admin-preview" id="settingSizeGuidePreview" alt="Prévia do guia de medidas"></div>
+
+              <div class="form-group full"><h3 style="margin-bottom:0">Imagem das formas de pagamento</h3></div>
+              <div class="form-group"><label>URL da imagem</label><input class="input" id="settingPaymentsUrl"></div>
+              <div class="form-group"><label>Ou envie uma imagem</label><input class="input" id="settingPaymentsFile" type="file" accept="image/*"></div>
+              <div class="form-group full"><img class="image-preview" id="settingPaymentsPreview" alt="Prévia das formas de pagamento"></div>
+            </div>
+            <button class="btn btn-primary" type="submit" style="margin-top:18px">Salvar alterações do rodapé</button>
+          </form>
+        </section>
+
+        <section class="admin-section" id="section-settings">
+          <div class="admin-heading"><div><h1>Configurações</h1><p>Altere o acesso provisório e restaure os dados de demonstração.</p></div></div>
+          <form class="admin-card" id="credentialsForm">
+            <h3 style="margin-top:0">Acesso administrativo</h3>
+            <div class="admin-form-grid"><div class="form-group"><label>E-mail</label><input class="input" id="adminEmail" type="email" required></div><div class="form-group"><label>Nova senha</label><input class="input" id="adminPassword" type="text" required></div></div>
+            <button class="btn btn-primary" type="submit" style="margin-top:16px">Salvar acesso</button>
+          </form>
+          <div class="admin-card"><h3 style="margin-top:0">Dados demonstrativos</h3><p class="muted">Esta ação apaga produtos, banners, configurações, carrinho e pedidos cadastrados neste navegador.</p><button class="btn btn-danger" id="resetDemoButton">Restaurar versão inicial</button></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="editorBackdrop"></div>
+  <div class="modal" id="editorModal">
+    <div class="modal-panel">
+      <div class="modal-header"><h2 id="editorTitle" style="margin:0">Editar</h2><button class="icon-btn" id="closeEditor">✕</button></div>
+      <div class="modal-body" id="editorBody"></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="orderBackdrop"></div>
+  <div class="modal" id="orderModal">
+    <div class="modal-panel">
+      <div class="modal-header"><h2 id="orderModalTitle" style="margin:0">Pedido</h2><button class="icon-btn" id="closeOrder">✕</button></div>
+      <div class="modal-body" id="orderModalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/store.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

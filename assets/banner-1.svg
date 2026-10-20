@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 650">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#050505"/><stop offset="1" stop-color="#1c2500"/></linearGradient></defs>
+  <rect width="1600" height="650" fill="url(#g)"/>
+  <circle cx="1260" cy="325" r="350" fill="#d7ff36" opacity=".10"/>
+  <path d="M1100 90h250l130 210-130 270h-250L970 300z" fill="#d7ff36" opacity=".18"/>
+  <text x="110" y="210" font-family="Arial" font-size="38" font-weight="700" fill="#d7ff36">NOVA COLEÇÃO</text>
+  <text x="110" y="315" font-family="Arial" font-size="92" font-weight="900" fill="#fff">VISTA O SEU TIME</text>
+  <text x="110" y="385" font-family="Arial" font-size="32" fill="#ddd">Camisas nacionais, internacionais e retrô.</text>
+  <rect x="110" y="450" width="300" height="74" rx="37" fill="#d7ff36"/>
+  <text x="260" y="496" text-anchor="middle" font-family="Arial" font-size="26" font-weight="800" fill="#080808">VER CATÁLOGO</text>
+</svg>
